@@ -12,16 +12,13 @@ jobs:
     steps:
       - name: Current Repository Checkout
         uses: actions/checkout@v3
-
       - name: Java 17 설치
         uses: actions/setup-java@v3
         with:
           java-version: 17
           distribution: temurin
-
       - name: Gradle Wrapper Validation
         uses: gradle/wrapper-validation-action@v1
-
       - name: Gradle Build Action
         uses: gradle/gradle-build-action@v2.6.0
         with:
