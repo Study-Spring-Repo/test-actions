@@ -1,0 +1,19 @@
+name: GitHub Actions Test
+run-name: ${{ github.actor }} is testing GitHub Actions
+on: [push]
+jobs:
+  Test-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "이 작업은 ${{ github.event_name }} 에 의해서 트리거된 이벤트입니다."
+      - run: echo "이 작업은 GitHub에서 호스팅한 ${{ runner.os }} 서버에서 진행중입니다."
+      - run: echo "이 작업이 진행되는 브랜치 명은 ${{ github.ref }} 이고 레포지터리 명은 ${{ github.repository }} 입니다."
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "${{ github.repository }} 레포지터리는 러너에게 클론 되었습니다."
+      - run: echo "이 작업은 이제 러너에서 코드를 테스트할 준비가 완료되었습니다."
+      - name: 레포지터리 파일 목록
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "이 작업의 상태는 ${{ job.status }} 입니다."
+  
