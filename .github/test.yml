@@ -1,0 +1,17 @@
+name: self
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "test/self" ]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: say
+        run: |
+          echo 'we can do this'
